@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272EDFFB1E428D9A0029B0F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 272EDFFA1E428D9A0029B0F2 /* LaunchScreen.xib */; };
+		279AB0881E42853E00654249 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279AB0871E42853E00654249 /* MainViewController.xib */; };
+		279AB08B1E42855C00654249 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279AB08A1E42855C00654249 /* MainViewController.m */; };
 		27D485C91E421B7E0038DDEC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D485C81E421B7E0038DDEC /* main.m */; };
 		27D485CC1E421B7E0038DDEC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D485CB1E421B7E0038DDEC /* AppDelegate.m */; };
-		27D485CF1E421B7E0038DDEC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D485CE1E421B7E0038DDEC /* ViewController.m */; };
-		27D485D21E421B7E0038DDEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D485D01E421B7E0038DDEC /* Main.storyboard */; };
 		27D485D41E421B7E0038DDEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D485D31E421B7E0038DDEC /* Assets.xcassets */; };
-		27D485D71E421B7E0038DDEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D485D51E421B7E0038DDEC /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		27D485C41E421B7E0038DDEC /* TumblViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumblViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		272EDFFA1E428D9A0029B0F2 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = ../LaunchScreen.xib; sourceTree = "<group>"; };
+		279AB0871E42853E00654249 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = ../MainViewController.xib; sourceTree = "<group>"; };
+		279AB0891E42855C00654249 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../MainViewController.h; sourceTree = "<group>"; };
+		279AB08A1E42855C00654249 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../MainViewController.m; sourceTree = "<group>"; };
+		27D485C41E421B7E0038DDEC /* TumblrViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumblrViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D485C81E421B7E0038DDEC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		27D485CA1E421B7E0038DDEC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		27D485CB1E421B7E0038DDEC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		27D485CD1E421B7E0038DDEC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		27D485CE1E421B7E0038DDEC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		27D485D11E421B7E0038DDEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27D485D31E421B7E0038DDEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		27D485D61E421B7E0038DDEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27D485D81E421B7E0038DDEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,7 +42,7 @@
 		27D485BB1E421B7D0038DDEC = {
 			isa = PBXGroup;
 			children = (
-				27D485C61E421B7E0038DDEC /* TumblViewer */,
+				27D485C61E421B7E0038DDEC /* TumblrViewer */,
 				27D485C51E421B7E0038DDEC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,24 +50,25 @@
 		27D485C51E421B7E0038DDEC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				27D485C41E421B7E0038DDEC /* TumblViewer.app */,
+				27D485C41E421B7E0038DDEC /* TumblrViewer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		27D485C61E421B7E0038DDEC /* TumblViewer */ = {
+		27D485C61E421B7E0038DDEC /* TumblrViewer */ = {
 			isa = PBXGroup;
 			children = (
+				279AB0891E42855C00654249 /* MainViewController.h */,
+				279AB08A1E42855C00654249 /* MainViewController.m */,
+				279AB0871E42853E00654249 /* MainViewController.xib */,
+				272EDFFA1E428D9A0029B0F2 /* LaunchScreen.xib */,
 				27D485CA1E421B7E0038DDEC /* AppDelegate.h */,
 				27D485CB1E421B7E0038DDEC /* AppDelegate.m */,
-				27D485CD1E421B7E0038DDEC /* ViewController.h */,
-				27D485CE1E421B7E0038DDEC /* ViewController.m */,
-				27D485D01E421B7E0038DDEC /* Main.storyboard */,
 				27D485D31E421B7E0038DDEC /* Assets.xcassets */,
-				27D485D51E421B7E0038DDEC /* LaunchScreen.storyboard */,
 				27D485D81E421B7E0038DDEC /* Info.plist */,
 				27D485C71E421B7E0038DDEC /* Supporting Files */,
 			);
+			name = TumblrViewer;
 			path = TumblViewer;
 			sourceTree = "<group>";
 		};
@@ -82,9 +83,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		27D485C31E421B7D0038DDEC /* TumblViewer */ = {
+		27D485C31E421B7D0038DDEC /* TumblrViewer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 27D485DB1E421B7E0038DDEC /* Build configuration list for PBXNativeTarget "TumblViewer" */;
+			buildConfigurationList = 27D485DB1E421B7E0038DDEC /* Build configuration list for PBXNativeTarget "TumblrViewer" */;
 			buildPhases = (
 				27D485C01E421B7D0038DDEC /* Sources */,
 				27D485C11E421B7D0038DDEC /* Frameworks */,
@@ -94,9 +95,9 @@
 			);
 			dependencies = (
 			);
-			name = TumblViewer;
+			name = TumblrViewer;
 			productName = TumblViewer;
-			productReference = 27D485C41E421B7E0038DDEC /* TumblViewer.app */;
+			productReference = 27D485C41E421B7E0038DDEC /* TumblrViewer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -115,7 +116,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 27D485BF1E421B7D0038DDEC /* Build configuration list for PBXProject "TumblViewer" */;
+			buildConfigurationList = 27D485BF1E421B7D0038DDEC /* Build configuration list for PBXProject "TumblrViewer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -128,7 +129,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				27D485C31E421B7D0038DDEC /* TumblViewer */,
+				27D485C31E421B7D0038DDEC /* TumblrViewer */,
 			);
 		};
 /* End PBXProject section */
@@ -138,9 +139,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27D485D71E421B7E0038DDEC /* LaunchScreen.storyboard in Resources */,
 				27D485D41E421B7E0038DDEC /* Assets.xcassets in Resources */,
-				27D485D21E421B7E0038DDEC /* Main.storyboard in Resources */,
+				272EDFFB1E428D9A0029B0F2 /* LaunchScreen.xib in Resources */,
+				279AB0881E42853E00654249 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,32 +152,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27D485CF1E421B7E0038DDEC /* ViewController.m in Sources */,
 				27D485CC1E421B7E0038DDEC /* AppDelegate.m in Sources */,
+				279AB08B1E42855C00654249 /* MainViewController.m in Sources */,
 				27D485C91E421B7E0038DDEC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		27D485D01E421B7E0038DDEC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				27D485D11E421B7E0038DDEC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		27D485D51E421B7E0038DDEC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				27D485D61E421B7E0038DDEC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		27D485D91E421B7E0038DDEC /* Debug */ = {
@@ -277,6 +259,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pl.tubis.tumblrviewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -290,13 +273,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pl.tubis.tumblrviewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		27D485BF1E421B7D0038DDEC /* Build configuration list for PBXProject "TumblViewer" */ = {
+		27D485BF1E421B7D0038DDEC /* Build configuration list for PBXProject "TumblrViewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27D485D91E421B7E0038DDEC /* Debug */,
@@ -305,13 +289,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		27D485DB1E421B7E0038DDEC /* Build configuration list for PBXNativeTarget "TumblViewer" */ = {
+		27D485DB1E421B7E0038DDEC /* Build configuration list for PBXNativeTarget "TumblrViewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27D485DC1E421B7E0038DDEC /* Debug */,
 				27D485DD1E421B7E0038DDEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

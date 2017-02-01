@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TumblViewer.xcodeproj">
+      location = "self:/Users/mike/Programmer/Braintri/TumblViewer/TumblrViewer.xcodeproj">
    </FileRef>
 </Workspace>
