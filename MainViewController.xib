@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
+                <outlet property="tableView" destination="WnG-ZR-kkH" id="zjd-6u-v9U"/>
                 <outlet property="view" destination="iN0-l3-epB" id="UiH-1a-NDp"/>
             </connections>
         </placeholder>
@@ -23,6 +24,15 @@
                     <rect key="frame" x="0.0" y="30" width="375" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WnG-ZR-kkH">
+                    <rect key="frame" x="0.0" y="74" width="375" height="593"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="aSk-in-C53"/>
+                        <outlet property="delegate" destination="-1" id="DVP-DC-T3a"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -30,7 +40,7 @@
                 <constraint firstItem="fj6-83-hiS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Dyl-hR-7jY"/>
                 <constraint firstAttribute="trailing" secondItem="fj6-83-hiS" secondAttribute="trailing" id="utJ-0c-a75"/>
             </constraints>
-            <point key="canvasLocation" x="69" y="115"/>
+            <point key="canvasLocation" x="68.5" y="114.5"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
