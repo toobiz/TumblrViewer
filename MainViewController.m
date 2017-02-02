@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 
+
 @interface MainViewController ()
 
 @end
@@ -44,6 +45,12 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    [self.navigationController pushViewController:self.detailViewController animated:true];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

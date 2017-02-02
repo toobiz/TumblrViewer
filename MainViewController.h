@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailViewController.h"
 
 @interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong,nonatomic) DetailViewController *detailViewController;
 
 @end
