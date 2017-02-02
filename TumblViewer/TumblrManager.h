@@ -18,5 +18,6 @@
 @property (weak, nonatomic) id delegate;
 
 - (void)fetchPostsForUser:(NSString*)username;
+- (void)receivedPostsJSON:(NSData *)objectNotation;
 
 @end

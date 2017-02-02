@@ -21,9 +21,9 @@
         return nil;
     }
     
-    NSMutableArray *groups = [[NSMutableArray alloc] init];
+    NSMutableArray *posts = [[NSMutableArray alloc] init];
     
-    NSArray *results = [parsedObject valueForKey:@"results"];
+    NSArray *results = [parsedObject valueForKey:@"posts"];
     NSLog(@"Count %d", results.count);
     
     for (NSDictionary *postDic in results) {
@@ -35,10 +35,10 @@
             }
         }
         
-        [groups addObject:post];
+        [posts addObject:post];
     }
     
-    return groups;
+    return posts;
 }
 
 @end

@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     
     self.client = [[TumblrClient alloc] init];
-    [self.client searchPosts:@"toobiz"];
+    [self.client searchPostsForUser:@"toobiz"];
 
 }
 

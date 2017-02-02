@@ -7,6 +7,8 @@
 //
 
 #import "TumblrClient.h"
+#import "TumblrClientDelegate.h"
+#import "PostParser.h"
 
 @implementation TumblrClient
 
@@ -18,12 +20,26 @@
                                 NSURLResponse *response,
                                 NSError *error) {
                 if (error) {
-                    NSLog(@"%@", error);
+                    [self.delegate fetchingPostsFailedWithError:error];
                 } else {
-                    NSLog(@"%@", data);
+                    [self receivedPostsJSON:data];
                 }
                 
             }] resume];
+}
+
+- (void)receivedPostsJSON:(NSData *)objectNotation
+{
+    NSError *error = nil;
+    NSData *newData = [objectNotation subdataWithRange:(NSMakeRange(22, objectNotation.length - 24))];
+    NSArray *posts = [PostParser postsFromJSON:newData error:&error];
+//
+//    NSError *localError = nil;
+//    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:newData options:NSJSONReadingAllowFragments error:&localError];
+    
+    NSLog(@"%@", posts);
+
+    
 }
 
 @end
