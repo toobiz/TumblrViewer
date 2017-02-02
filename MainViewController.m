@@ -8,7 +8,6 @@
 
 #import "MainViewController.h"
 
-
 @interface MainViewController ()
 
 @end
@@ -18,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.client = [[TumblrClient alloc] init];
+    [self.client searchPosts:@"toobiz"];
+
 }
 
 - (void)didReceiveMemoryWarning {

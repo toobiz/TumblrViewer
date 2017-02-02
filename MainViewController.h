@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailViewController.h"
+#import "TumblrClient.h"
 
 @interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) DetailViewController *detailViewController;
+@property (strong,nonatomic) TumblrClient *client;
 
 @end
