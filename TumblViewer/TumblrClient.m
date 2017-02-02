@@ -15,7 +15,7 @@
 - (void)searchPostsForUser:(NSString*)user{
     
     NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:@"https://unamourdephan.tumblr.com/api/read/json"]
+    [[session dataTaskWithURL:[NSURL URLWithString:@"https://toobiz.tumblr.com/api/read/json"]
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {
@@ -33,12 +33,6 @@
     NSError *error = nil;
     NSData *newData = [objectNotation subdataWithRange:(NSMakeRange(22, objectNotation.length - 24))];
     NSArray *posts = [PostParser postsFromJSON:newData error:&error];
-//
-//    NSError *localError = nil;
-//    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:newData options:NSJSONReadingAllowFragments error:&localError];
-    
-    NSLog(@"%@", posts);
-
     
 }
 
