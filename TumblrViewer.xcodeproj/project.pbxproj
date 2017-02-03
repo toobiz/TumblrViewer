@@ -18,7 +18,6 @@
 		27E0267C1E43526800DFE845 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E0267B1E43526800DFE845 /* Post.m */; };
 		27E026811E43585000DFE845 /* TumblrClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E026801E43585000DFE845 /* TumblrClient.m */; };
 		27E026871E43675600DFE845 /* PostParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E026861E43675600DFE845 /* PostParser.m */; };
-		27E0268B1E4369CD00DFE845 /* TumblrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E0268A1E4369CD00DFE845 /* TumblrManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,14 +36,10 @@
 		27E0266F1E42AD9700DFE845 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		27E0267A1E43526800DFE845 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		27E0267B1E43526800DFE845 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
-		27E0267E1E4356E900DFE845 /* TumblrClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrClientDelegate.h; sourceTree = "<group>"; };
 		27E0267F1E43585000DFE845 /* TumblrClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrClient.h; sourceTree = "<group>"; };
 		27E026801E43585000DFE845 /* TumblrClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumblrClient.m; sourceTree = "<group>"; };
 		27E026851E43675600DFE845 /* PostParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostParser.h; sourceTree = "<group>"; };
 		27E026861E43675600DFE845 /* PostParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostParser.m; sourceTree = "<group>"; };
-		27E026881E43697700DFE845 /* TumblrManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrManagerDelegate.h; sourceTree = "<group>"; };
-		27E026891E4369CD00DFE845 /* TumblrManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrManager.h; sourceTree = "<group>"; };
-		27E0268A1E4369CD00DFE845 /* TumblrManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumblrManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,10 +115,6 @@
 				27E026861E43675600DFE845 /* PostParser.m */,
 				27E0267F1E43585000DFE845 /* TumblrClient.h */,
 				27E026801E43585000DFE845 /* TumblrClient.m */,
-				27E0267E1E4356E900DFE845 /* TumblrClientDelegate.h */,
-				27E026881E43697700DFE845 /* TumblrManagerDelegate.h */,
-				27E026891E4369CD00DFE845 /* TumblrManager.h */,
-				27E0268A1E4369CD00DFE845 /* TumblrManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -204,7 +195,6 @@
 				27E026811E43585000DFE845 /* TumblrClient.m in Sources */,
 				27E0267C1E43526800DFE845 /* Post.m in Sources */,
 				27E026871E43675600DFE845 /* PostParser.m in Sources */,
-				27E0268B1E4369CD00DFE845 /* TumblrManager.m in Sources */,
 				27D485CC1E421B7E0038DDEC /* AppDelegate.m in Sources */,
 				279AB08B1E42855C00654249 /* MainViewController.m in Sources */,
 				27D485C91E421B7E0038DDEC /* main.m in Sources */,
