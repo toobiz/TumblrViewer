@@ -11,14 +11,15 @@
 
 @implementation PostParser
 
-+ (NSArray *)postsFromJSON:(NSData *)objectNotation error:(NSError **)error
-{
++ (void)postsFromJSON:(NSData *)objectNotation error:(NSError *)error
+                completion:(void (^)(BOOL success, NSArray* posts))completionBlock {
+
     NSError *localError = nil;
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:objectNotation options:0 error:&localError];
     
     if (localError != nil) {
-        *error = localError;
-        return nil;
+//        *error = localError;
+//        return nil;
     }
     
     NSMutableArray *posts = [[NSMutableArray alloc] init];
@@ -41,8 +42,8 @@
         
         [posts addObject:post];
     }
-    
-    return posts;
+    completionBlock(TRUE, posts);
+//    return posts;
 }
 
 @end

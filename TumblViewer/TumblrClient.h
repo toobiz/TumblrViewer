@@ -13,6 +13,7 @@
 @interface TumblrClient : NSObject
 @property (weak, nonatomic) id delegate;
 
-- (void)searchPostsForUser:(NSString*)user;
+- (void)searchPostsForUser:(NSString *)user
+                completion:(void (^)(BOOL success, NSArray* posts))completionBlock;
 
 @end

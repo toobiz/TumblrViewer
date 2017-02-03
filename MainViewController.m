@@ -19,7 +19,12 @@
     // Do any additional setup after loading the view.
     
     self.client = [[TumblrClient alloc] init];
-    [self.client searchPostsForUser:@"toobiz"];
+    [self.client searchPostsForUser:@"toobiz" completion:^(BOOL success, NSArray* posts) {
+        if (success) {
+            NSLog(@"Great Success!");
+            NSLog(@"%@", posts[0]);
+        }
+    }];
 
 }
 

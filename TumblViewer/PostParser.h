@@ -10,6 +10,6 @@
 
 @interface PostParser : NSObject
 
-+ (NSArray *)postsFromJSON:(NSData *)objectNotation error:(NSError **)error;
-
++ (void)postsFromJSON:(NSData *)objectNotation error:(NSError *)error
+           completion:(void (^)(BOOL success, NSArray* posts))completionBlock;
 @end
