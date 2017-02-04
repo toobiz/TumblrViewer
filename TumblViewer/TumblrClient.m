@@ -7,7 +7,6 @@
 //
 
 #import "TumblrClient.h"
-#import "TumblrClientDelegate.h"
 #import "PostParser.h"
 
 @implementation TumblrClient
@@ -16,12 +15,12 @@
                 completion:(void (^)(BOOL success, NSArray* posts))completionBlock {
 
     NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:@"https://toobiz.tumblr.com/api/read/json"]
+    [[session dataTaskWithURL:[NSURL URLWithString:@"https://unamourdephan.tumblr.com/api/read/json"]
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {
                 if (error) {
-                    [self.delegate fetchingPostsFailedWithError:error];
+//                    [self.delegate fetchingPostsFailedWithError:error];
                     completionBlock(FALSE, nil);
                 } else {
                     [self receivedPostsJSON:data
