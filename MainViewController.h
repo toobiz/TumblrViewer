@@ -10,8 +10,9 @@
 #import "DetailViewController.h"
 #import "TumblrClient.h"
 
-@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate, UISearchBarDelegate>
 
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) DetailViewController *detailViewController;
 @property (strong,nonatomic) TumblrClient *client;

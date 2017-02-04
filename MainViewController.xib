@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
+                <outlet property="searchBar" destination="fj6-83-hiS" id="aqj-qP-tz2"/>
                 <outlet property="tableView" destination="WnG-ZR-kkH" id="zjd-6u-v9U"/>
                 <outlet property="view" destination="iN0-l3-epB" id="UiH-1a-NDp"/>
             </connections>
@@ -20,9 +21,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WnG-ZR-kkH">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WnG-ZR-kkH">
                     <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="aSk-in-C53"/>
@@ -36,9 +36,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="WnG-ZR-kkH" secondAttribute="bottom" id="36j-BD-4J3"/>
+                <constraint firstItem="WnG-ZR-kkH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="7mr-HH-jpZ"/>
                 <constraint firstItem="fj6-83-hiS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="8ws-1d-fDa"/>
+                <constraint firstItem="WnG-ZR-kkH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ahh-Ta-Ic7"/>
                 <constraint firstItem="fj6-83-hiS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Dyl-hR-7jY"/>
                 <constraint firstAttribute="trailing" secondItem="fj6-83-hiS" secondAttribute="trailing" id="utJ-0c-a75"/>
+                <constraint firstAttribute="trailing" secondItem="WnG-ZR-kkH" secondAttribute="trailing" id="ves-fl-rih"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <point key="canvasLocation" x="68.5" y="50.5"/>

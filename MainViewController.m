@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "TumblrClient.h"
 
 @interface MainViewController ()
 
@@ -16,20 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+
+    self.searchBar.delegate = self;
     self.client = [[TumblrClient alloc] init];
-    [self.client searchPostsForUser:@"toobiz" completion:^(BOOL success, NSArray* posts) {
-        if (success) {
-            NSLog(@"Great Success!");
-//            NSLog(@"%@", posts[0]);
-//            self.posts = posts;
-            self.posts = [[NSMutableArray alloc] initWithArray:posts];
-            [self.tableView reloadData];
-        }
-    }];
+
 
 }
+
+#pragma mark - UITableView delegate
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -47,37 +42,26 @@
     
     NSDictionary *postDicationary = self.posts[indexPath.row];
     
-//    if ([postDicationary valueForKey:@"title"] != nil) {
-        cell.textLabel.text = [postDicationary valueForKey:@"type"];
-//    }
+    cell.textLabel.text = [postDicationary valueForKey:@"type"];
     
     cell.detailTextLabel.text = @"Post description";
     cell.imageView.image = [UIImage imageNamed:@"launch-image"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
-    if ([postDicationary valueForKey:@"photoUrl_75"] == nil) {}
-    else if ([postDicationary valueForKey:@"photoUrl_75"] == (id)[NSNull null]) {
-    } else {
-        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-        dispatch_async(queue, ^{
-            NSURL *imageURL = [[NSURL alloc] initWithString:[postDicationary valueForKey:@"photoUrl_75"]];
-            NSData *imageData = [[NSData alloc] initWithContentsOfURL:imageURL];
-            UIImage *image = [[UIImage alloc] initWithData:imageData];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                cell.imageView.image = image;
-            });
-        });
+    if ([postDicationary valueForKey:@"photoUrl_75"] != nil)
+    {
+        
+        NSURL *imageURL = [[NSURL alloc] initWithString:[postDicationary valueForKey:@"photoUrl_75"]];
+        
+        [self.client downloadImageWithURL:imageURL completionBlock:^(BOOL succeeded, UIImage *image) {
+            if (succeeded) {
+//                dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.imageView.image = image;
+//                });
+            }
+        }];
     }
-    
-//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-//    dispatch_async(queue, ^{
-////        NSURL *imageURL = [[NSURL alloc] initWithString:[postDicationary valueForKey:@"photoUrl_75"]];
-//        NSData *imageData = [[NSData alloc] initWithContentsOfURL:[postDicationary valueForKey:@"photoUrl_75"]];
-//        UIImage *image = [[UIImage alloc] initWithData:imageData];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            cell.imageView.image = image;
-//        });
-//    });
     
     return cell;
 }
@@ -90,6 +74,33 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.searchBar resignFirstResponder];
+}
+
+#pragma mark - UISearchBar delegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    NSLog(@"Search Clicked");
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSLog(@"%@", searchText);
+    [self.client searchPostsForUser:searchText completion:^(BOOL success, NSArray* posts) {
+        if (success) {
+            NSLog(@"Great Success!");
+            //            NSLog(@"%@", posts[0]);
+            //            self.posts = posts;
+            self.posts = [[NSMutableArray alloc] initWithArray:posts];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }
+    }];
 }
 
 @end

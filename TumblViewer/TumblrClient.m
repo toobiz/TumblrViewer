@@ -6,6 +6,7 @@
 //  Copyright © 2017 Mike Tubis. All rights reserved.
 //
 
+
 #import "TumblrClient.h"
 #import "PostParser.h"
 
@@ -14,13 +15,13 @@
 - (void)searchPostsForUser:(NSString *)user
                 completion:(void (^)(BOOL success, NSArray* posts))completionBlock {
 
+    NSString *searchString = [NSString stringWithFormat:@"https://%@.tumblr.com/api/read/json", user];
     NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:@"https://unamourdephan.tumblr.com/api/read/json"]
+    [[session dataTaskWithURL:[NSURL URLWithString:searchString]
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {
                 if (error) {
-//                    [self.delegate fetchingPostsFailedWithError:error];
                     completionBlock(FALSE, nil);
                 } else {
                     [self receivedPostsJSON:data
@@ -37,22 +38,6 @@
             }] resume];
 }
 
-//- (void)searchPostsForUser:(NSString*)user{
-//    
-//    NSURLSession *session = [NSURLSession sharedSession];
-//    [[session dataTaskWithURL:[NSURL URLWithString:@"https://toobiz.tumblr.com/api/read/json"]
-//            completionHandler:^(NSData *data,
-//                                NSURLResponse *response,
-//                                NSError *error) {
-//                if (error) {
-//                    [self.delegate fetchingPostsFailedWithError:error];
-//                } else {
-//                    [self receivedPostsJSON:data];
-//                }
-//                
-//            }] resume];
-//}
-
 - (void)receivedPostsJSON:(NSData *)objectNotation
                 completion:(void (^)(BOOL success, NSArray* posts))completionBlock {
     NSError *error = nil;
@@ -63,6 +48,20 @@
     }];
 }
 
-//    completionBlock(TRUE, posts);
+- (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if ( !error )
+                               {
+                                   UIImage *image = [[UIImage alloc] initWithData:data];
+                                   completionBlock(YES,image);
+                               } else{
+                                   completionBlock(NO,nil);
+                               }
+                           }];
+}
 
 @end

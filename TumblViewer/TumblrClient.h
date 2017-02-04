@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @protocol TumblrClientDelegate;
 
@@ -15,5 +16,7 @@
 
 - (void)searchPostsForUser:(NSString *)user
                 completion:(void (^)(BOOL success, NSArray* posts))completionBlock;
+- (void)downloadImageWithURL:(NSURL *)url
+             completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock;
 
 @end
