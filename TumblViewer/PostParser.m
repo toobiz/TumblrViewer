@@ -30,7 +30,6 @@
         
         for (NSString *key in postDic) {
             if ([post respondsToSelector:NSSelectorFromString(key)]) {
-                [post setValue:[postDic valueForKey:@"photo-url-75"] forKey:@"photoUrl_75"];
                 [post setValue:[postDic valueForKey:@"photo-url-250"] forKey:@"photoUrl_250"];
                 [post setValue:[postDic valueForKey:@"photo-url-500"] forKey:@"photoUrl_500"];
                 [post setValue:[postDic valueForKey:@"date"] forKey:@"date"];

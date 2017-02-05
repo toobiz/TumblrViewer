@@ -10,7 +10,6 @@
 
 @interface Post : NSObject
 
-@property (strong, nonatomic) NSString *photoUrl_75;
 @property (strong, nonatomic) NSString *photoUrl_250;
 @property (strong, nonatomic) NSString *photoUrl_500;
 @property (strong, nonatomic) NSString *date;

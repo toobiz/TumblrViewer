@@ -29,7 +29,7 @@
                                      if (success) {
                                          completionBlock(true, posts);
                                      } else {
-
+                                         completionBlock(false, nil);
                                      }
                                      
                                  }];
@@ -43,7 +43,11 @@
     NSError *error = nil;
     NSData *newData = [objectNotation subdataWithRange:(NSMakeRange(22, objectNotation.length - 24))];
     [PostParser postsFromJSON:newData error:error completion:^(BOOL success, NSArray *posts) {
-        completionBlock(success, posts);
+        if (success) {
+            completionBlock(true, posts);
+        } else {
+            completionBlock(false, nil);
+        }
     }];
 }
 

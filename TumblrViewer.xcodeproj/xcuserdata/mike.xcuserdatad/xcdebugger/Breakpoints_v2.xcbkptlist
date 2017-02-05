@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TumblViewer/TumblrClient.m"
-            timestampString = "508030269.371284"
+            timestampString = "508031339.11852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "-downloadImageWithURL:completionBlock:"
             landmarkType = "7">
          </BreakpointContent>
