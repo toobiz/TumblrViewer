@@ -22,9 +22,8 @@
     
     [self.client downloadImageWithURL:imageURL completionBlock:^(BOOL succeeded, UIImage *image) {
         if (succeeded) {
-            //                dispatch_async(dispatch_get_main_queue(), ^{
             self.imageView.image = image;
-            //                });
+            self.label.text = self.date;
         }
     }];
     }
