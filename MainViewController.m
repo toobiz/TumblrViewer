@@ -26,7 +26,6 @@
     self.label.text = @"Tumblr Viewer";
     
     [self setFlowLayout];
-
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -61,17 +60,15 @@
     
     NSDictionary *postDicationary = self.posts[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:@"tumblr-icon"];
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.imageView.contentMode = UIViewContentModeCenter;
     
-    if ([postDicationary valueForKey:@"photoUrl_75"] != nil)
+    if ([postDicationary valueForKey:@"photoUrl_250"] != nil)
     {
-        NSURL *imageURL = [[NSURL alloc] initWithString:[postDicationary valueForKey:@"photoUrl_75"]];
+        NSURL *imageURL = [[NSURL alloc] initWithString:[postDicationary valueForKey:@"photoUrl_250"]];
         
         [self.client downloadImageWithURL:imageURL completionBlock:^(BOOL succeeded, UIImage *image) {
             if (succeeded) {
-                //                dispatch_async(dispatch_get_main_queue(), ^{
                 cell.imageView.image = image;
-                //                });
             }
         }];
     }
@@ -123,7 +120,7 @@
                 });
             } else {
                 dispatch_async(dispatch_get_main_queue(), ^{
-//                    [self.tableView reloadData];
+                    [self.posts removeAllObjects];
                     self.collectionView.hidden = true;
                     [self.spinner stopAnimating];
                     self.spinner.hidden = true;
@@ -143,9 +140,5 @@
 
     }];
 }
-
-// TODO:
-// custom cell
-// detailview
 
 @end

@@ -158,8 +158,7 @@
 				TargetAttributes = {
 					27D485C31E421B7D0038DDEC = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = AFD55YHYZ6;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -308,7 +307,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = AFD55YHYZ6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TumblViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pl.tubis.tumblrviewer;
@@ -322,7 +321,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = AFD55YHYZ6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TumblViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pl.tubis.tumblrviewer;

@@ -25,7 +25,6 @@
     NSMutableArray *posts = [[NSMutableArray alloc] init];
     
     NSArray *results = [parsedObject valueForKey:@"posts"];
-    NSLog(@"Count %d", results.count);
     
     for (NSDictionary *postDic in results) {
         Post *post = [[Post alloc] init];
@@ -35,18 +34,13 @@
                 [post setValue:[postDic valueForKey:@"photo-url-75"] forKey:@"photoUrl_75"];
                 [post setValue:[postDic valueForKey:@"photo-url-250"] forKey:@"photoUrl_250"];
                 [post setValue:[postDic valueForKey:@"photo-url-500"] forKey:@"photoUrl_500"];
-                [post setValue:[postDic valueForKey:@"regular-title"] forKey:@"title"];
-                [post setValue:[postDic valueForKey:@"id"] forKey:@"id"];
-                [post setValue:[postDic valueForKey:@"type"] forKey:@"type"];
                 [post setValue:[postDic valueForKey:@"date"] forKey:@"date"];
-
             }
         }
         
         [posts addObject:post];
     }
     completionBlock(TRUE, posts);
-//    return posts;
 }
 
 @end
