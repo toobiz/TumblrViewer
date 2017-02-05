@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "TumblrClient.h"
+#import "TumblrCell.h"
 
 @interface MainViewController ()
 
@@ -19,8 +20,9 @@
     [super viewDidLoad];
 
     self.searchBar.delegate = self;
+    self.collectionView.delegate = self;
     self.client = [[TumblrClient alloc] init];
-    self.tableView.hidden = true;
+    self.collectionView.hidden = true;
     self.spinner.hidden = true;
     self.label.text = @"Tumblr Viewer";
 
@@ -30,41 +32,31 @@
     [self.searchBar resignFirstResponder];
 }
 
-#pragma mark - UITableView delegate
+#pragma mark - UICollectionView delegate
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.posts.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
-    }
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+   
+    [self.collectionView registerClass:[TumblrCell class] forCellWithReuseIdentifier:@"TumblrCell"];
+    TumblrCell *cell = (TumblrCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"TumblrCell" forIndexPath:indexPath];
     
     NSDictionary *postDicationary = self.posts[indexPath.row];
-    
-    cell.textLabel.text = [postDicationary valueForKey:@"date"];
-    
-//    cell.detailTextLabel.text = @"Post description";
     cell.imageView.image = [UIImage imageNamed:@"tumblr-icon"];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     if ([postDicationary valueForKey:@"photoUrl_75"] != nil)
     {
-        
         NSURL *imageURL = [[NSURL alloc] initWithString:[postDicationary valueForKey:@"photoUrl_75"]];
         
         [self.client downloadImageWithURL:imageURL completionBlock:^(BOOL succeeded, UIImage *image) {
             if (succeeded) {
-//                dispatch_async(dispatch_get_main_queue(), ^{
-                    cell.imageView.image = image;
-//                });
+                //                dispatch_async(dispatch_get_main_queue(), ^{
+                cell.imageView.image = image;
+                //                });
             }
         }];
     }
@@ -72,18 +64,15 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *postDicationary = self.posts[indexPath.row];
-
+    
     self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     self.detailViewController.photoUrl = [postDicationary valueForKey:@"photoUrl_500"];
     self.detailViewController.client = self.client;
     self.detailViewController.date = [postDicationary valueForKey:@"date"];
     [self.navigationController pushViewController:self.detailViewController animated:true];
     [self.searchBar resignFirstResponder];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -111,8 +100,8 @@
             if (posts.count > 0) {
                 self.posts = [[NSMutableArray alloc] initWithArray:posts];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.tableView reloadData];
-                    self.tableView.hidden = false;
+                    [self.collectionView reloadData];
+                    self.collectionView.hidden = false;
                     [self.spinner stopAnimating];
                     self.spinner.hidden = true;
                     self.label.text = @"";
@@ -120,7 +109,7 @@
             } else {
                 dispatch_async(dispatch_get_main_queue(), ^{
 //                    [self.tableView reloadData];
-                    self.tableView.hidden = true;
+                    self.collectionView.hidden = true;
                     [self.spinner stopAnimating];
                     self.spinner.hidden = true;
                     self.label.text = @"Nothing found";
@@ -129,8 +118,8 @@
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.posts removeAllObjects];
-                [self.tableView reloadData];
-                self.tableView.hidden = true;
+                [self.collectionView reloadData];
+                self.collectionView.hidden = true;
                 [self.spinner stopAnimating];
                 self.spinner.hidden = true;
                 self.label.text = @"Nothing found";

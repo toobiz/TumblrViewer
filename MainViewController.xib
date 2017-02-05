@@ -11,10 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
+                <outlet property="collectionView" destination="eWf-Cb-HLv" id="3HW-Lj-gaA"/>
                 <outlet property="label" destination="kw7-uq-lLo" id="Fzd-ni-c1V"/>
                 <outlet property="searchBar" destination="fj6-83-hiS" id="aqj-qP-tz2"/>
                 <outlet property="spinner" destination="1bY-zx-HmY" id="js4-lu-JbS"/>
-                <outlet property="tableView" destination="WnG-ZR-kkH" id="zjd-6u-v9U"/>
                 <outlet property="view" destination="iN0-l3-epB" id="UiH-1a-NDp"/>
             </connections>
         </placeholder>
@@ -23,14 +23,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WnG-ZR-kkH">
-                    <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="aSk-in-C53"/>
-                        <outlet property="delegate" destination="-1" id="DVP-DC-T3a"/>
-                    </connections>
-                </tableView>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fj6-83-hiS">
                     <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -44,21 +36,35 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eWf-Cb-HLv">
+                    <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wFS-ec-qq2">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="i4S-wt-tfn"/>
+                        <outlet property="delegate" destination="-1" id="sUT-dz-S8A"/>
+                    </connections>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="WnG-ZR-kkH" secondAttribute="bottom" id="36j-BD-4J3"/>
-                <constraint firstItem="WnG-ZR-kkH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="7mr-HH-jpZ"/>
                 <constraint firstItem="fj6-83-hiS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="8ws-1d-fDa"/>
-                <constraint firstItem="WnG-ZR-kkH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ahh-Ta-Ic7"/>
                 <constraint firstAttribute="trailing" secondItem="kw7-uq-lLo" secondAttribute="trailing" constant="16" id="Bt1-rv-T4I"/>
                 <constraint firstItem="fj6-83-hiS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Dyl-hR-7jY"/>
+                <constraint firstItem="eWf-Cb-HLv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="MS5-TB-n1e"/>
                 <constraint firstItem="kw7-uq-lLo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Uh6-lF-A6b"/>
+                <constraint firstItem="eWf-Cb-HLv" firstAttribute="top" secondItem="fj6-83-hiS" secondAttribute="bottom" id="VPG-Ls-a6D"/>
                 <constraint firstItem="kw7-uq-lLo" firstAttribute="top" secondItem="fj6-83-hiS" secondAttribute="bottom" constant="247" id="fJy-rI-Wba"/>
+                <constraint firstAttribute="bottom" secondItem="eWf-Cb-HLv" secondAttribute="bottom" id="jdQ-5O-Tjd"/>
+                <constraint firstAttribute="trailing" secondItem="eWf-Cb-HLv" secondAttribute="trailing" id="kdD-d2-tcr"/>
                 <constraint firstItem="1bY-zx-HmY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="2.5" id="o82-xc-JSM"/>
                 <constraint firstItem="1bY-zx-HmY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="p0A-oc-NOx"/>
                 <constraint firstAttribute="trailing" secondItem="fj6-83-hiS" secondAttribute="trailing" id="utJ-0c-a75"/>
-                <constraint firstAttribute="trailing" secondItem="WnG-ZR-kkH" secondAttribute="trailing" id="ves-fl-rih"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <point key="canvasLocation" x="68.5" y="50.5"/>

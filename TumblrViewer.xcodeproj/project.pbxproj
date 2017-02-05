@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		272EDFFB1E428D9A0029B0F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 272EDFFA1E428D9A0029B0F2 /* LaunchScreen.xib */; };
+		2787A7711E47AEB600D20006 /* TumblrCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2787A76F1E47AEB600D20006 /* TumblrCell.m */; };
+		2787A7721E47AEB700D20006 /* TumblrCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2787A7701E47AEB600D20006 /* TumblrCell.xib */; };
 		279AB0881E42853E00654249 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279AB0871E42853E00654249 /* MainViewController.xib */; };
 		279AB08B1E42855C00654249 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279AB08A1E42855C00654249 /* MainViewController.m */; };
 		27D485C91E421B7E0038DDEC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D485C81E421B7E0038DDEC /* main.m */; };
@@ -22,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		272EDFFA1E428D9A0029B0F2 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = ../LaunchScreen.xib; sourceTree = "<group>"; };
+		2787A76E1E47AEB600D20006 /* TumblrCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrCell.h; sourceTree = "<group>"; };
+		2787A76F1E47AEB600D20006 /* TumblrCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumblrCell.m; sourceTree = "<group>"; };
+		2787A7701E47AEB600D20006 /* TumblrCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TumblrCell.xib; sourceTree = "<group>"; };
 		279AB0871E42853E00654249 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = ../MainViewController.xib; sourceTree = "<group>"; };
 		279AB0891E42855C00654249 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../MainViewController.h; sourceTree = "<group>"; };
 		279AB08A1E42855C00654249 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../MainViewController.m; sourceTree = "<group>"; };
@@ -102,6 +107,9 @@
 				27E0266D1E42AD7200DFE845 /* DetailViewController.m */,
 				27E0266F1E42AD9700DFE845 /* DetailViewController.xib */,
 				279AB0871E42853E00654249 /* MainViewController.xib */,
+				2787A76E1E47AEB600D20006 /* TumblrCell.h */,
+				2787A76F1E47AEB600D20006 /* TumblrCell.m */,
+				2787A7701E47AEB600D20006 /* TumblrCell.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -182,6 +190,7 @@
 				272EDFFB1E428D9A0029B0F2 /* LaunchScreen.xib in Resources */,
 				279AB0881E42853E00654249 /* MainViewController.xib in Resources */,
 				27E026701E42AD9700DFE845 /* DetailViewController.xib in Resources */,
+				2787A7721E47AEB700D20006 /* TumblrCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +206,7 @@
 				27E026871E43675600DFE845 /* PostParser.m in Sources */,
 				27D485CC1E421B7E0038DDEC /* AppDelegate.m in Sources */,
 				279AB08B1E42855C00654249 /* MainViewController.m in Sources */,
+				2787A7711E47AEB600D20006 /* TumblrCell.m in Sources */,
 				27D485C91E421B7E0038DDEC /* main.m in Sources */,
 				27E0266E1E42AD7200DFE845 /* DetailViewController.m in Sources */,
 			);
