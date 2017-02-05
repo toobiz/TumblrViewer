@@ -22,7 +22,12 @@
     self.client = [[TumblrClient alloc] init];
     self.tableView.hidden = true;
     self.spinner.hidden = true;
-//    [self.spinner hidesWhenStopped];
+    self.label.text = @"Tumblr Viewer";
+
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.searchBar resignFirstResponder];
 }
 
 #pragma mark - UITableView delegate
@@ -76,6 +81,8 @@
     self.detailViewController.client = self.client;
     [self.navigationController pushViewController:self.detailViewController animated:true];
     [self.searchBar resignFirstResponder];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -107,6 +114,7 @@
                     self.tableView.hidden = false;
                     [self.spinner stopAnimating];
                     self.spinner.hidden = true;
+                    self.label.text = @"";
                 });
             } else {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -114,6 +122,7 @@
                     self.tableView.hidden = true;
                     [self.spinner stopAnimating];
                     self.spinner.hidden = true;
+                    self.label.text = @"Nothing found";
                 });
             }
         } else {
@@ -123,6 +132,7 @@
                 self.tableView.hidden = true;
                 [self.spinner stopAnimating];
                 self.spinner.hidden = true;
+                self.label.text = @"Nothing found";
             });
         }
 
@@ -130,8 +140,7 @@
 }
 
 // TODO:
-// - custom cell
+// custom cell
 // detailview
-// empty table placeholder
 
 @end
