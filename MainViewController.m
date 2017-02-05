@@ -20,8 +20,9 @@
 
     self.searchBar.delegate = self;
     self.client = [[TumblrClient alloc] init];
-
-
+    self.tableView.hidden = true;
+    self.spinner.hidden = true;
+//    [self.spinner hidesWhenStopped];
 }
 
 #pragma mark - UITableView delegate
@@ -67,8 +68,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSDictionary *postDicationary = self.posts[indexPath.row];
 
     self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    self.detailViewController.photoUrl = [postDicationary valueForKey:@"photoUrl_500"];
+    self.detailViewController.client = self.client;
     [self.navigationController pushViewController:self.detailViewController animated:true];
     [self.searchBar resignFirstResponder];
 }
@@ -91,16 +96,36 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     NSLog(@"%@", searchText);
+    self.spinner.hidden = false;
+    [self.spinner startAnimating];
     [self.client searchPostsForUser:searchText completion:^(BOOL success, NSArray* posts) {
         if (success) {
-            NSLog(@"Great Success!");
-            //            NSLog(@"%@", posts[0]);
-            //            self.posts = posts;
-            self.posts = [[NSMutableArray alloc] initWithArray:posts];
+            if (posts.count > 0) {
+                self.posts = [[NSMutableArray alloc] initWithArray:posts];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                    self.tableView.hidden = false;
+                    [self.spinner stopAnimating];
+                    self.spinner.hidden = true;
+                });
+            } else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [self.tableView reloadData];
+                    self.tableView.hidden = true;
+                    [self.spinner stopAnimating];
+                    self.spinner.hidden = true;
+                });
+            }
+        } else {
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.posts removeAllObjects];
                 [self.tableView reloadData];
+                self.tableView.hidden = true;
+                [self.spinner stopAnimating];
+                self.spinner.hidden = true;
             });
         }
+
     }];
 }
 
