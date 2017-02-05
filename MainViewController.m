@@ -42,10 +42,10 @@
     
     NSDictionary *postDicationary = self.posts[indexPath.row];
     
-    cell.textLabel.text = [postDicationary valueForKey:@"type"];
+    cell.textLabel.text = [postDicationary valueForKey:@"date"];
     
-    cell.detailTextLabel.text = @"Post description";
-    cell.imageView.image = [UIImage imageNamed:@"launch-image"];
+//    cell.detailTextLabel.text = @"Post description";
+    cell.imageView.image = [UIImage imageNamed:@"tumblr-icon"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
@@ -70,6 +70,7 @@
 
     self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     [self.navigationController pushViewController:self.detailViewController animated:true];
+    [self.searchBar resignFirstResponder];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,5 +103,10 @@
         }
     }];
 }
+
+// TODO:
+// - custom cell
+// detailview
+// empty table placeholder
 
 @end

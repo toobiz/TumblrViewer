@@ -37,6 +37,8 @@
                 [post setValue:[postDic valueForKey:@"regular-title"] forKey:@"title"];
                 [post setValue:[postDic valueForKey:@"id"] forKey:@"id"];
                 [post setValue:[postDic valueForKey:@"type"] forKey:@"type"];
+                [post setValue:[postDic valueForKey:@"date"] forKey:@"date"];
+
             }
         }
         
