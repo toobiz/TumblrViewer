@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
 @property (strong,nonatomic) DetailViewController *detailViewController;
 @property (strong,nonatomic) TumblrClient *client;
 @property (strong, nonatomic) NSMutableArray *posts;

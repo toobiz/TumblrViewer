@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
                 <outlet property="searchBar" destination="fj6-83-hiS" id="aqj-qP-tz2"/>
+                <outlet property="spinner" destination="1bY-zx-HmY" id="js4-lu-JbS"/>
                 <outlet property="tableView" destination="WnG-ZR-kkH" id="zjd-6u-v9U"/>
                 <outlet property="view" destination="iN0-l3-epB" id="UiH-1a-NDp"/>
             </connections>
@@ -31,8 +32,11 @@
                 </tableView>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fj6-83-hiS">
                     <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </searchBar>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1bY-zx-HmY">
+                    <rect key="frame" x="177" y="326" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -41,6 +45,8 @@
                 <constraint firstItem="fj6-83-hiS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="8ws-1d-fDa"/>
                 <constraint firstItem="WnG-ZR-kkH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ahh-Ta-Ic7"/>
                 <constraint firstItem="fj6-83-hiS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Dyl-hR-7jY"/>
+                <constraint firstItem="1bY-zx-HmY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="2.5" id="o82-xc-JSM"/>
+                <constraint firstItem="1bY-zx-HmY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="p0A-oc-NOx"/>
                 <constraint firstAttribute="trailing" secondItem="fj6-83-hiS" secondAttribute="trailing" id="utJ-0c-a75"/>
                 <constraint firstAttribute="trailing" secondItem="WnG-ZR-kkH" secondAttribute="trailing" id="ves-fl-rih"/>
             </constraints>

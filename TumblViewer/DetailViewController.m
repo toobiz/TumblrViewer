@@ -16,7 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    if (self.photoUrl != nil) {
+    NSURL *imageURL = [[NSURL alloc] initWithString:self.photoUrl];
+    
+    [self.client downloadImageWithURL:imageURL completionBlock:^(BOOL succeeded, UIImage *image) {
+        if (succeeded) {
+            //                dispatch_async(dispatch_get_main_queue(), ^{
+            self.imageView.image = image;
+            //                });
+        }
+    }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

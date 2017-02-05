@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TumblrClient.h"
 
 @interface DetailViewController : UIViewController
+
+@property (strong, nonatomic) NSString *photoUrl;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong,nonatomic) TumblrClient *client;
 
 @end
