@@ -18,8 +18,7 @@
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:objectNotation options:0 error:&localError];
     
     if (localError != nil) {
-//        *error = localError;
-//        return nil;
+
     }
     
     NSMutableArray *posts = [[NSMutableArray alloc] init];

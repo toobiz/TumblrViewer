@@ -65,7 +65,9 @@
         NSURL *imageURL = [[NSURL alloc] initWithString:photoUrl];
         [self.client downloadImageWithURL:imageURL completionBlock:^(BOOL succeeded, UIImage *image) {
             if (succeeded) {
-                cell.imageView.image = image;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.imageView.image = image;
+                });
             }
         }];
     }
