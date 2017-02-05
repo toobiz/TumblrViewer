@@ -21,5 +21,6 @@
 @property (strong,nonatomic) DetailViewController *detailViewController;
 @property (strong,nonatomic) TumblrClient *client;
 @property (strong, nonatomic) NSMutableArray *posts;
+@property (strong, nonatomic) NSString *searchText;
 
 @end

@@ -32,19 +32,17 @@
     [self.searchBar resignFirstResponder];
 }
 
-#pragma mark - UICollectionView delegate
+#pragma mark - UICollectionView
 
 -(void) setFlowLayout{
 
     CGFloat screenWidth = UIScreen.mainScreen.bounds.size.width;
-    
     CGFloat margin = 3.0;
     CGFloat space = 1.0;
     CGFloat cellWidth = floor((screenWidth - (2 * margin + 2 * space)) / 3);
     
     self.flowLayout.sectionInset = UIEdgeInsetsMake(0, space, 0, space);
     self.flowLayout.itemSize = CGSizeMake(cellWidth, cellWidth);
-    
     [self.flowLayout setMinimumInteritemSpacing:margin];
     [self.flowLayout setMinimumLineSpacing:margin];
 }
@@ -59,20 +57,18 @@
     TumblrCell *cell = (TumblrCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"TumblrCell" forIndexPath:indexPath];
     
     NSDictionary *postDicationary = self.posts[indexPath.row];
+    NSString *photoUrl = [postDicationary valueForKey:@"photoUrl_250"];
     cell.imageView.image = [UIImage imageNamed:@"tumblr-icon"];
     cell.imageView.contentMode = UIViewContentModeCenter;
     
-    if ([postDicationary valueForKey:@"photoUrl_250"] != nil)
-    {
-        NSURL *imageURL = [[NSURL alloc] initWithString:[postDicationary valueForKey:@"photoUrl_250"]];
-        
+    if (photoUrl != nil) {
+        NSURL *imageURL = [[NSURL alloc] initWithString:photoUrl];
         [self.client downloadImageWithURL:imageURL completionBlock:^(BOOL succeeded, UIImage *image) {
             if (succeeded) {
                 cell.imageView.image = image;
             }
         }];
     }
-    
     return cell;
 }
 
@@ -87,23 +83,23 @@
     [self.searchBar resignFirstResponder];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self.searchBar resignFirstResponder];
 }
 
-#pragma mark - UISearchBar delegate
+#pragma mark - UISearchBar
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    NSLog(@"Search Clicked");
     [searchBar resignFirstResponder];
+    [self search:self.searchText];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.searchText = searchText;
+    [self search:searchText];
+}
+
+- (void) search: (NSString *)searchText {
     NSLog(@"%@", searchText);
     self.spinner.hidden = false;
     [self.spinner startAnimating];
@@ -119,26 +115,23 @@
                     self.label.text = @"";
                 });
             } else {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.posts removeAllObjects];
-                    self.collectionView.hidden = true;
-                    [self.spinner stopAnimating];
-                    self.spinner.hidden = true;
-                    self.label.text = @"Nothing found";
-                });
+                [self reloadData];
             }
         } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.posts removeAllObjects];
-                [self.collectionView reloadData];
-                self.collectionView.hidden = true;
-                [self.spinner stopAnimating];
-                self.spinner.hidden = true;
-                self.label.text = @"Nothing found";
-            });
+            [self reloadData];
         }
-
     }];
+}
+
+- (void) reloadData {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.posts removeAllObjects];
+        [self.collectionView reloadData];
+        self.collectionView.hidden = true;
+        [self.spinner stopAnimating];
+        self.spinner.hidden = true;
+        self.label.text = @"Nothing found";
+    });
 }
 
 @end
