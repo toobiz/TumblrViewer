@@ -23,10 +23,10 @@
     [self.client downloadImageWithURL:imageURL completionBlock:^(BOOL succeeded, UIImage *image) {
         if (succeeded) {
             self.imageView.image = image;
-            self.label.text = self.date;
         }
     }];
     }
+    self.label.text = self.date;
 }
 
 - (void)didReceiveMemoryWarning {

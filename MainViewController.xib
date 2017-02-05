@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
                 <outlet property="collectionView" destination="eWf-Cb-HLv" id="3HW-Lj-gaA"/>
+                <outlet property="flowLayout" destination="wFS-ec-qq2" id="aSn-Ny-dw2"/>
                 <outlet property="label" destination="kw7-uq-lLo" id="Fzd-ni-c1V"/>
                 <outlet property="searchBar" destination="fj6-83-hiS" id="aqj-qP-tz2"/>
                 <outlet property="spinner" destination="1bY-zx-HmY" id="js4-lu-JbS"/>

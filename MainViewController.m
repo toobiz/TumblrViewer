@@ -19,12 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.searchBar.delegate = self;
-    self.collectionView.delegate = self;
+    self.searchBar.delegate = self;    
     self.client = [[TumblrClient alloc] init];
     self.collectionView.hidden = true;
     self.spinner.hidden = true;
     self.label.text = @"Tumblr Viewer";
+    
+    [self setFlowLayout];
 
 }
 
@@ -34,6 +35,20 @@
 
 #pragma mark - UICollectionView delegate
 
+-(void) setFlowLayout{
+
+    CGFloat screenWidth = UIScreen.mainScreen.bounds.size.width;
+    
+    CGFloat margin = 3.0;
+    CGFloat space = 1.0;
+    CGFloat cellWidth = floor((screenWidth - (2 * margin + 2 * space)) / 3);
+    
+    self.flowLayout.sectionInset = UIEdgeInsetsMake(0, space, 0, space);
+    self.flowLayout.itemSize = CGSizeMake(cellWidth, cellWidth);
+    
+    [self.flowLayout setMinimumInteritemSpacing:margin];
+    [self.flowLayout setMinimumLineSpacing:margin];
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.posts.count;
