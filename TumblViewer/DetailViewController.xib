@@ -22,14 +22,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumblr-icon" translatesAutoresizingMaskIntoConstraints="NO" id="zEj-nZ-7bt">
-                    <rect key="frame" x="16" y="119" width="343" height="283"/>
+                    <rect key="frame" x="0.0" y="119" width="375" height="353"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="343" id="NTK-UA-MaM"/>
-                        <constraint firstAttribute="height" constant="283" id="OXy-tt-dGh"/>
+                        <constraint firstAttribute="width" constant="375" id="NTK-UA-MaM"/>
+                        <constraint firstAttribute="height" constant="353" id="OXy-tt-dGh"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irS-ml-utn">
-                    <rect key="frame" x="16" y="403" width="343" height="21"/>
+                    <rect key="frame" x="16" y="472" width="343" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="E6k-y1-itE"/>
                     </constraints>
@@ -49,7 +49,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="25m-a5-Vz8" secondAttribute="trailing" id="7A9-Ws-4R7"/>
                 <constraint firstItem="zEj-nZ-7bt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="119" id="QlP-2Y-y1N"/>
-                <constraint firstItem="irS-ml-utn" firstAttribute="top" secondItem="zEj-nZ-7bt" secondAttribute="bottom" constant="1" id="SoC-n2-qH9"/>
+                <constraint firstItem="irS-ml-utn" firstAttribute="top" secondItem="zEj-nZ-7bt" secondAttribute="bottom" id="SoC-n2-qH9"/>
                 <constraint firstItem="25m-a5-Vz8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Xre-ET-4L0"/>
                 <constraint firstItem="25m-a5-Vz8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gVp-ue-bxH"/>
                 <constraint firstItem="irS-ml-utn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="nLm-nI-d2G"/>

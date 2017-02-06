@@ -18,7 +18,7 @@
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:objectNotation options:0 error:&localError];
     
     if (localError != nil) {
-
+        completionBlock(false, nil);
     }
     
     NSMutableArray *posts = [[NSMutableArray alloc] init];
@@ -38,7 +38,7 @@
         
         [posts addObject:post];
     }
-    completionBlock(TRUE, posts);
+    completionBlock(true, posts);
 }
 
 @end
