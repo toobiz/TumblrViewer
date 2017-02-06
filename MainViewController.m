@@ -19,11 +19,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.searchBar.delegate = self;    
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+
+    self.title = @"Tumblr Viewer";
+    self.searchBar.delegate = self;
+    self.searchBar.backgroundColor = [UIColor colorWithRed:(246/255.0) green:(147/255.0) blue:(33/255.0) alpha:1.0];
+    self.searchBar.backgroundImage = [UIImage new];
     self.client = [[TumblrClient alloc] init];
     self.collectionView.hidden = true;
     self.spinner.hidden = true;
-    self.label.text = @"Tumblr Viewer";
+    self.label.text = @"Search for Tumblr users";
     
     [self setFlowLayout];
 }
