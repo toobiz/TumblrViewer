@@ -37,7 +37,8 @@
     }
     
     if (self.postBody != nil) {
-        self.bodyLabel.text = self.postBody;
+        NSAttributedString * bodyText = [[NSAttributedString alloc] initWithData:[self.postBody dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        self.bodyLabel.attributedText = bodyText;
     } else {
         self.bodyLabel.text = nil;
     }

@@ -57,6 +57,9 @@
     NSString *title = [postDicationary valueForKey:@"title"];
     NSString *body = [postDicationary valueForKey:@"body"];
     NSString *date = [postDicationary valueForKey:@"date"];
+    
+
+    
     cell.postImage.image = [UIImage imageNamed:@"tumblr-icon"];
     cell.postImage.contentMode = UIViewContentModeCenter;
     
@@ -70,11 +73,11 @@
                 });
             }
         }];
-    } else {
-//        cell.postImage.image = nil;
     }
+    
     if (title == (id)[NSNull null] || title == nil ) {
-        cell.postLabel.text = body;
+        NSAttributedString * bodyText = [[NSAttributedString alloc] initWithData:[body dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        cell.postLabel.attributedText = bodyText;
     } else {
         cell.postLabel.text = title;
     }

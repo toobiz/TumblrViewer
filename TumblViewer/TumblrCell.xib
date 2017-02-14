@@ -28,9 +28,11 @@
                                     <constraint firstAttribute="width" constant="130" id="crQ-yh-Om2"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bba-Xv-2Fs">
-                                <rect key="frame" x="140" y="35" width="238" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bba-Xv-2Fs">
+                                <rect key="frame" x="140" y="8" width="232" height="116"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="232" id="5ee-e4-2MY"/>
+                                </constraints>
                                 <string key="text">Label
 Label
 Label</string>
@@ -41,10 +43,14 @@ Label</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Bba-Xv-2Fs" firstAttribute="leading" secondItem="PjO-lS-sfh" secondAttribute="trailing" constant="8" id="1Je-Dx-gWT"/>
                             <constraint firstAttribute="bottom" secondItem="PjO-lS-sfh" secondAttribute="bottom" constant="1" id="FpU-lz-225"/>
                             <constraint firstItem="PjO-lS-sfh" firstAttribute="top" secondItem="LmQ-C3-gI2" secondAttribute="top" constant="1" id="X2w-BC-dWb"/>
                             <constraint firstItem="PjO-lS-sfh" firstAttribute="leading" secondItem="LmQ-C3-gI2" secondAttribute="leading" constant="2" id="bFn-ta-hQm"/>
                             <constraint firstItem="PjO-lS-sfh" firstAttribute="centerY" secondItem="LmQ-C3-gI2" secondAttribute="centerY" id="la6-XL-tFo"/>
+                            <constraint firstAttribute="bottom" secondItem="Bba-Xv-2Fs" secondAttribute="bottom" constant="8" id="pD1-qn-KIp"/>
+                            <constraint firstItem="Bba-Xv-2Fs" firstAttribute="top" secondItem="LmQ-C3-gI2" secondAttribute="top" constant="8" id="pO3-Ea-TPh"/>
+                            <constraint firstItem="Bba-Xv-2Fs" firstAttribute="centerY" secondItem="LmQ-C3-gI2" secondAttribute="centerY" id="zrX-JF-mKw"/>
                         </constraints>
                     </view>
                 </subviews>
