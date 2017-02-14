@@ -33,9 +33,10 @@
                 [post setValue:[postDic valueForKey:@"photo-url-250"] forKey:@"photoUrl_250"];
                 [post setValue:[postDic valueForKey:@"photo-url-500"] forKey:@"photoUrl_500"];
                 [post setValue:[postDic valueForKey:@"date"] forKey:@"date"];
+                [post setValue:[postDic valueForKey:@"regular-title"] forKey:@"title"];
+                [post setValue:[postDic valueForKey:@"regular-body"] forKey:@"body"];
             }
         }
-        
         [posts addObject:post];
     }
     completionBlock(true, posts);

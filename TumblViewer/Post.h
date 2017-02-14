@@ -13,5 +13,7 @@
 @property (strong, nonatomic) NSString *photoUrl_250;
 @property (strong, nonatomic) NSString *photoUrl_500;
 @property (strong, nonatomic) NSString *date;
+@property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSString *body;
 
 @end
