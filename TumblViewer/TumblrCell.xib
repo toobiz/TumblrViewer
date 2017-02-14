@@ -21,16 +21,27 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PjO-lS-sfh">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuh-SJ-cO7">
+                        <rect key="frame" x="0.0" y="16" width="50" height="19"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="zuh-SJ-cO7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="R4F-ln-qAW"/>
                 <constraint firstItem="PjO-lS-sfh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bdN-ZC-gCr"/>
                 <constraint firstAttribute="bottom" secondItem="PjO-lS-sfh" secondAttribute="bottom" id="bqS-bg-oz0"/>
                 <constraint firstAttribute="trailing" secondItem="PjO-lS-sfh" secondAttribute="trailing" id="f8H-h1-38C"/>
+                <constraint firstAttribute="trailing" secondItem="zuh-SJ-cO7" secondAttribute="trailing" id="ljd-Fk-Kid"/>
                 <constraint firstItem="PjO-lS-sfh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="lme-vx-0pQ"/>
+                <constraint firstItem="zuh-SJ-cO7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vhE-TC-L1j"/>
+                <constraint firstAttribute="bottom" secondItem="zuh-SJ-cO7" secondAttribute="bottom" constant="15" id="wuK-rp-tfU"/>
             </constraints>
             <connections>
                 <outlet property="imageView" destination="PjO-lS-sfh" id="yTY-3f-HSW"/>
+                <outlet property="label" destination="zuh-SJ-cO7" id="sax-NY-Mkw"/>
             </connections>
         </collectionViewCell>
     </objects>

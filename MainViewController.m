@@ -67,6 +67,8 @@
     
     NSDictionary *postDicationary = self.posts[indexPath.row];
     NSString *photoUrl = [postDicationary valueForKey:@"photoUrl_250"];
+    NSString *title = [postDicationary valueForKey:@"title"];
+    NSString *body = [postDicationary valueForKey:@"body"];
     cell.imageView.image = [UIImage imageNamed:@"tumblr-icon"];
     cell.imageView.contentMode = UIViewContentModeCenter;
     
@@ -79,7 +81,15 @@
                 });
             }
         }];
+    } else {
+        cell.imageView.image = nil;
     }
+    if (title == (id)[NSNull null] || title == nil ) {
+        cell.label.text = body;
+    } else {
+        cell.label.text = title;
+    }
+
     return cell;
 }
 

@@ -15,7 +15,6 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        // Initialization code
         NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:@"TumblrCell" owner:self options:nil];
         
         if ([arrayOfViews count] < 1) { return nil; }

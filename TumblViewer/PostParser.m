@@ -12,8 +12,8 @@
 @implementation PostParser
 
 + (void)postsFromJSON:(NSData *)objectNotation error:(NSError *)error
-                completion:(void (^)(BOOL success, NSArray* posts))completionBlock {
-
+           completion:(void (^)(BOOL success, NSArray* posts))completionBlock {
+    
     NSError *localError = nil;
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:objectNotation options:0 error:&localError];
     
@@ -30,14 +30,16 @@
         
         for (NSString *key in postDic) {
             if ([post respondsToSelector:NSSelectorFromString(key)]) {
-                [post setValue:[postDic valueForKey:@"photo-url-250"] forKey:@"photoUrl_250"];
-                [post setValue:[postDic valueForKey:@"photo-url-500"] forKey:@"photoUrl_500"];
-                [post setValue:[postDic valueForKey:@"date"] forKey:@"date"];
-                [post setValue:[postDic valueForKey:@"regular-title"] forKey:@"title"];
-                [post setValue:[postDic valueForKey:@"regular-body"] forKey:@"body"];
+                if ([[postDic valueForKey:@"type"]  isEqual: @"photo"] || [[postDic valueForKey:@"type"]  isEqual: @"regular"]) {
+                    [post setValue:[postDic valueForKey:@"photo-url-250"] forKey:@"photoUrl_250"];
+                    [post setValue:[postDic valueForKey:@"photo-url-500"] forKey:@"photoUrl_500"];
+                    [post setValue:[postDic valueForKey:@"date"] forKey:@"date"];
+                    [post setValue:[postDic valueForKey:@"regular-title"] forKey:@"title"];
+                    [post setValue:[postDic valueForKey:@"regular-body"] forKey:@"body"];
+                    [posts addObject:post];
+                }
             }
         }
-        [posts addObject:post];
     }
     completionBlock(true, posts);
 }

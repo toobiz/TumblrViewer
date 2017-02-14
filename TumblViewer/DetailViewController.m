@@ -41,11 +41,11 @@
     } else {
         self.bodyLabel.text = nil;
     }
-    
-    if (self.postTitle != nil) {
-        self.titleLabel.text = self.postTitle;
-    } else {
+
+    if (self.postTitle == nil || self.postTitle == (id)[NSNull null]) {
         self.titleLabel.text = self.date;
+    } else {
+        self.titleLabel.text = self.postTitle;
     }
 }
 
