@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TumblViewer/PostParser.m"
-            timestampString = "508797459.853536"
+            timestampString = "508801657.956887"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "+postsFromJSON:error:completion:"
             landmarkType = "7">
          </BreakpointContent>

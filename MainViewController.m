@@ -56,20 +56,20 @@
     NSString *photoUrl = [postDicationary valueForKey:@"photoUrl_250"];
     NSString *title = [postDicationary valueForKey:@"title"];
     NSString *body = [postDicationary valueForKey:@"body"];
-    cell.imageView.image = [UIImage imageNamed:@"tumblr-icon"];
-    cell.imageView.contentMode = UIViewContentModeCenter;
+    cell.postImage.image = [UIImage imageNamed:@"tumblr-icon"];
+    cell.postImage.contentMode = UIViewContentModeCenter;
     
     if (photoUrl != nil) {
         NSURL *imageURL = [[NSURL alloc] initWithString:photoUrl];
         [self.client downloadImageWithURL:imageURL completionBlock:^(BOOL succeeded, UIImage *image) {
             if (succeeded) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    cell.imageView.image = image;
+                    cell.postImage.image = image;
                 });
             }
         }];
     } else {
-        cell.imageView.image = nil;
+//        cell.postImage.image = nil;
     }
     if (title == (id)[NSNull null] || title == nil ) {
         cell.label.text = body;
@@ -100,7 +100,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return 100;
 }
 
 #pragma mark - UISearchBar
