@@ -56,6 +56,7 @@
     NSString *photoUrl = [postDicationary valueForKey:@"photoUrl_250"];
     NSString *title = [postDicationary valueForKey:@"title"];
     NSString *body = [postDicationary valueForKey:@"body"];
+    NSString *date = [postDicationary valueForKey:@"date"];
     cell.postImage.image = [UIImage imageNamed:@"tumblr-icon"];
     cell.postImage.contentMode = UIViewContentModeCenter;
     
@@ -65,6 +66,7 @@
             if (succeeded) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     cell.postImage.image = image;
+                    cell.postLabel.text = date;
                 });
             }
         }];
@@ -72,9 +74,9 @@
 //        cell.postImage.image = nil;
     }
     if (title == (id)[NSNull null] || title == nil ) {
-        cell.label.text = body;
+        cell.postLabel.text = body;
     } else {
-        cell.label.text = title;
+        cell.postLabel.text = title;
     }
     
     return cell;

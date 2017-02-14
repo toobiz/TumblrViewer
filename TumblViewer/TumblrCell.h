@@ -11,6 +11,6 @@
 @interface TumblrCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *postImage;
-@property (strong, nonatomic) IBOutlet UILabel *label;
+@property (strong, nonatomic) IBOutlet UILabel *postLabel;
 
 @end
