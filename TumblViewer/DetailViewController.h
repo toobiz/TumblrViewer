@@ -15,7 +15,8 @@
 @property (strong, nonatomic) NSString *postTitle;
 @property (strong, nonatomic) NSString *postBody;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UILabel *label;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *bodyLabel;
 @property (strong,nonatomic) TumblrClient *client;
 
 @end

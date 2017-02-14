@@ -37,9 +37,15 @@
     }
     
     if (self.postBody != nil) {
-        self.label.text = self.postBody;
+        self.bodyLabel.text = self.postBody;
     } else {
-        self.label.text = nil;
+        self.bodyLabel.text = nil;
+    }
+    
+    if (self.postTitle != nil) {
+        self.titleLabel.text = self.postTitle;
+    } else {
+        self.titleLabel.text = nil;
     }
 }
 
