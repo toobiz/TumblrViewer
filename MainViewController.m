@@ -89,7 +89,8 @@
     self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     self.detailViewController.photoUrl = [postDicationary valueForKey:@"photoUrl_500"];
     self.detailViewController.client = self.client;
-    self.detailViewController.date = [postDicationary valueForKey:@"body"];
+    self.detailViewController.postBody = [postDicationary valueForKey:@"body"];
+    self.detailViewController.postTitle = [postDicationary valueForKey:@"title"];
     [self.navigationController pushViewController:self.detailViewController animated:true];
     [self.searchBar resignFirstResponder];
 }

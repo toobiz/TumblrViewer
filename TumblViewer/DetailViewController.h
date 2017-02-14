@@ -12,7 +12,8 @@
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) NSString *photoUrl;
-@property (strong, nonatomic) NSString *date;
+@property (strong, nonatomic) NSString *postTitle;
+@property (strong, nonatomic) NSString *postBody;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *label;
 @property (strong,nonatomic) TumblrClient *client;

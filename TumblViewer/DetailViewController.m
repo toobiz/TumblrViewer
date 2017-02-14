@@ -32,8 +32,15 @@
             });
         }
     }];
+    } else {
+        self.imageView.image = nil;
     }
-    self.label.text = self.date;
+    
+    if (self.postBody != nil) {
+        self.label.text = self.postBody;
+    } else {
+        self.label.text = nil;
+    }
 }
 
 @end
