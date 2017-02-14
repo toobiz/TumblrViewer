@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TumblrCell : UICollectionViewCell
+@interface TumblrCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *label;

@@ -10,11 +10,10 @@
 #import "DetailViewController.h"
 #import "TumblrClient.h"
 
-@interface MainViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UISearchControllerDelegate, UISearchBarDelegate>
+@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet UILabel *label;
 

@@ -27,44 +27,31 @@
 
     self.title = @"Tumblr Viewer";
     self.searchBar.delegate = self;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     self.searchBar.backgroundColor = [UIColor colorWithRed:(246/255.0) green:(147/255.0) blue:(33/255.0) alpha:1.0];
     self.searchBar.backgroundImage = [UIImage new];
     self.client = [[TumblrClient alloc] init];
-    self.collectionView.hidden = true;
+    self.tableView.hidden = true;
     self.spinner.hidden = true;
     self.label.text = @"Search for Tumblr users";
     
-    [self setFlowLayout];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.searchBar resignFirstResponder];
 }
 
-#pragma mark - UICollectionView
+#pragma mark - UITableView
 
--(void) setFlowLayout{
-
-    CGFloat screenWidth = UIScreen.mainScreen.bounds.size.width;
-    CGFloat margin = 3.0;
-    CGFloat space = 1.0;
-    CGFloat cellWidth = floor((screenWidth - (2 * margin + 2 * space)) / 3);
-    
-    self.flowLayout.sectionInset = UIEdgeInsetsMake(0, space, 0, space);
-    self.flowLayout.itemSize = CGSizeMake(cellWidth, cellWidth);
-    [self.flowLayout setMinimumInteritemSpacing:margin];
-    [self.flowLayout setMinimumLineSpacing:margin];
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-   
-    [self.collectionView registerClass:[TumblrCell class] forCellWithReuseIdentifier:@"TumblrCell"];
-    TumblrCell *cell = (TumblrCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"TumblrCell" forIndexPath:indexPath];
-    
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView registerNib:[UINib nibWithNibName:@"TumblrCell" bundle:nil] forCellReuseIdentifier:@"TumblrCell"];
+    TumblrCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TumblrCell"];
+
     NSDictionary *postDicationary = self.posts[indexPath.row];
     NSString *photoUrl = [postDicationary valueForKey:@"photoUrl_250"];
     NSString *title = [postDicationary valueForKey:@"title"];
@@ -89,11 +76,12 @@
     } else {
         cell.label.text = title;
     }
-
+    
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     NSDictionary *postDicationary = self.posts[indexPath.row];
     
     self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
@@ -104,10 +92,15 @@
     self.detailViewController.postTitle = [postDicationary valueForKey:@"title"];
     [self.navigationController pushViewController:self.detailViewController animated:true];
     [self.searchBar resignFirstResponder];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self.searchBar resignFirstResponder];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
 }
 
 #pragma mark - UISearchBar
@@ -131,8 +124,8 @@
             if (posts.count > 0) {
                 self.posts = [[NSMutableArray alloc] initWithArray:posts];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.collectionView reloadData];
-                    self.collectionView.hidden = false;
+                    [self.tableView reloadData];
+                    self.tableView.hidden = false;
                     [self.spinner stopAnimating];
                     self.spinner.hidden = true;
                     self.label.text = @"";
@@ -149,8 +142,8 @@
 - (void) reloadData {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.posts removeAllObjects];
-        [self.collectionView reloadData];
-        self.collectionView.hidden = true;
+        [self.tableView reloadData];
+        self.tableView.hidden = true;
         [self.spinner stopAnimating];
         self.spinner.hidden = true;
         self.label.text = @"Nothing found";
