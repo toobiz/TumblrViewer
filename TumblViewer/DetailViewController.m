@@ -45,7 +45,7 @@
     if (self.postTitle != nil) {
         self.titleLabel.text = self.postTitle;
     } else {
-        self.titleLabel.text = nil;
+        self.titleLabel.text = self.date;
     }
 }
 
