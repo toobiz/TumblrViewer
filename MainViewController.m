@@ -53,33 +53,32 @@
     TumblrCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TumblrCell"];
 
     NSDictionary *postDicationary = self.posts[indexPath.row];
-    NSString *photoUrl = [postDicationary valueForKey:@"photoUrl_250"];
-    NSString *title = [postDicationary valueForKey:@"title"];
-    NSString *body = [postDicationary valueForKey:@"body"];
-    NSString *date = [postDicationary valueForKey:@"date"];
-    
-
+    self.photoUrl_small = [postDicationary valueForKey:@"photoUrl_250"];
+    self.postTitle = [postDicationary valueForKey:@"title"];
+    self.bodyString = [postDicationary valueForKey:@"body"];
+    self.dateString = [postDicationary valueForKey:@"date"];
     
     cell.postImage.image = [UIImage imageNamed:@"tumblr-icon"];
     cell.postImage.contentMode = UIViewContentModeCenter;
     
-    if (photoUrl != nil) {
-        NSURL *imageURL = [[NSURL alloc] initWithString:photoUrl];
+    if (self.photoUrl_small != nil) {
+        NSURL *imageURL = [[NSURL alloc] initWithString:self.photoUrl_small];
         [self.client downloadImageWithURL:imageURL completionBlock:^(BOOL succeeded, UIImage *image) {
             if (succeeded) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     cell.postImage.image = image;
-                    cell.postLabel.text = date;
+                    cell.postLabel.text = self.dateString;
                 });
             }
         }];
     }
     
-    if (title == (id)[NSNull null] || title == nil ) {
-        NSAttributedString * bodyText = [[NSAttributedString alloc] initWithData:[body dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    if (self.postTitle == (id)[NSNull null] || self.postTitle == nil ) {
+        
+        NSAttributedString * bodyText = [[NSAttributedString alloc] initWithData:[self.bodyString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
         cell.postLabel.attributedText = bodyText;
     } else {
-        cell.postLabel.text = title;
+        cell.postLabel.text = self.postTitle;
     }
     
     return cell;
@@ -87,14 +86,15 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    [self.spinner startAnimating];
     NSDictionary *postDicationary = self.posts[indexPath.row];
     
     self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     self.detailViewController.photoUrl = [postDicationary valueForKey:@"photoUrl_500"];
     self.detailViewController.client = self.client;
-    self.detailViewController.date = [postDicationary valueForKey:@"date"];
-    self.detailViewController.postBody = [postDicationary valueForKey:@"body"];
-    self.detailViewController.postTitle = [postDicationary valueForKey:@"title"];
+    self.detailViewController.date = self.dateString;
+    self.detailViewController.postBody = self.bodyString;
+    self.detailViewController.postTitle = self.postTitle;
     [self.navigationController pushViewController:self.detailViewController animated:true];
     [self.searchBar resignFirstResponder];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -146,7 +146,6 @@
 
 - (void) reloadData {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.posts removeAllObjects];
         [self.tableView reloadData];
         self.tableView.hidden = true;
         [self.spinner stopAnimating];
